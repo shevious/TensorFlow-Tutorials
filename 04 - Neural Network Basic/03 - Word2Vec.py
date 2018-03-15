@@ -1,7 +1,8 @@
 # Word2Vec 모델을 간단하게 구현해봅니다.
 import tensorflow as tf
 import matplotlib
-matplotlib.use("tkAgg")
+#matplotlib.use("tkAgg")
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -158,3 +159,4 @@ for i, label in enumerate(word_list):
                  textcoords='offset points', ha='right', va='bottom', fontproperties=font)
 
 plt.show()
+plt.savefig('tt.png')
