@@ -1,14 +1,24 @@
 # Word2Vec 모델을 간단하게 구현해봅니다.
 import tensorflow as tf
 import matplotlib
+matplotlib.use("tkAgg")
 import matplotlib.pyplot as plt
 import numpy as np
 
 # matplot 에서 한글을 표시하기 위한 설정
-font_name = matplotlib.font_manager.FontProperties(
-                fname="/Library/Fonts/NanumGothic.otf"  # 한글 폰트 위치를 넣어주세요
-            ).get_name()
-matplotlib.rc('font', family=font_name)
+#font_name = matplotlib.font_manager.FontProperties(
+#                fname="/vagrant/NanumGothic.ttf"  # 한글 폰트 위치를 넣어주세요
+#            ).get_name()
+
+#matplotlib.rc('font', family=font_name)
+#matplotlib.rcParams['font.family'] = 'sans-serif'
+#matplotlib.rcParams['font.sans-serif'] = ['NanumGothic', 'Dejavu Sans', 'NanumGothic']
+
+#fontprop = matplotlib.font_manager.FontProperties(fname = "/usr/share/fonts/truetype/NanumGothic.ttf")
+#matplotlib.rcParams['font.family'] = fontprop.get
+
+font=matplotlib.font_manager.FontProperties()
+font.set_family('NanumGothic')
 
 # 단어 벡터를 분석해볼 임의의 문장들
 sentences = ["나 고양이 좋다",
@@ -145,6 +155,6 @@ for i, label in enumerate(word_list):
     x, y = trained_embeddings[i]
     plt.scatter(x, y)
     plt.annotate(label, xy=(x, y), xytext=(5, 2),
-                 textcoords='offset points', ha='right', va='bottom')
+                 textcoords='offset points', ha='right', va='bottom', fontproperties=font)
 
 plt.show()
